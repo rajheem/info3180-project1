@@ -1,0 +1,27 @@
+
+
+{% extends "base.html" %}
+
+{% block main %}
+<h1>List of Profiles</h1>
+{% for p in profiles %}
+
+<div class="row">
+
+<div class="col-sm-3 "><img src="{{url_for('static',filename='/uploads/'+p.profile_pic)}}"
+width="80%" height="80%"></div>
+<div  class="col-sm-5 ">
+  <h4>{{p.first_name}} {{p.last_name}}</h4>
+  <p><font color="grey"><i class="fa fa-user fa-fw"></i> {{p.gender}}</font></p>
+    <p><font color="grey"><i class="fas fa-map-marker-alt fa-fw"></i>{{p.location}}</font></p>
+</div>
+<div class="col-sm-4 ">
+  <button class="btn btn-success" onclick="window.location.href='{{url_for('profile_det',userid=p.id)}}';">View Profile</button>
+</div>
+</div>
+
+
+
+{% endfor %}
+
+{% endblock %}

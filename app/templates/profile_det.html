@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Profile Detail</h1>
+<div class="row">
+<div class="col-sm-6 "><img src="{{url_for('static',filename='/uploads/'+profile.profile_pic)}}" width="80%" height="80%"></div>
+<div class="col-sm-6 ">
+  <h3>{{profile.first_name}} {{profile.last_name}}</h3>
+  <p><font color="grey"><i class="fa fa-envelope fa-fw"></i>{{profile.email}}</font></p>
+  <p><font color="grey"><i class="fas fa-map-marker-alt fa-fw"></i>{{profile.location}}</font></p>
+  <p><font color="grey"><i class="far fa-calendar fa-fw"></i>Joined on {{profile.date_created}}</font></p>
+</div>
+<div class="col-sm-12 ">
+  <h4><strong><font color="grey">About Me</font></strong></h4>
+  <p>{{profile.biography}}</p>
+</div>
+<div class="col-sm-6">
+  <button type="submit" name="submit" class="btn btn-success">Send Message</button>
+  <button type="submit" name="submit" class="btn btn-primary">Follow</button>
+  </div>
+</div>
+
+{% endblock %}
